@@ -1,4 +1,5 @@
 import { Card } from "./card";
+import { CardValue } from "./card-value";
 import { Suit } from "./suit";
 
 export class Deck {
@@ -8,11 +9,12 @@ export class Deck {
     constructor() {
         this.cards = []
 
+        // TODO: need to learn how to easily iterate over enumerations.
         for(let cardValue = 0; cardValue < 13; cardValue++) {
-            for(const suitString in Suit) {
+            for(let suitValue = 0; suitValue < 4; suitValue++) {
                 this.cards.push({
-                    value: cardValue,
-                    suit: Suit[Suit[suitString]] // TODO: this is so gross, gotta fix this in the future. Yet I'm not really sure how to do so in javascript.
+                    value: CardValue[CardValue[cardValue]],
+                    suit: Suit[Suit[suitValue]] 
                 })
             }
         }

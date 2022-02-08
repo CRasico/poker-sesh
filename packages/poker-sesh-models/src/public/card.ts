@@ -1,6 +1,7 @@
+import { CardValue } from "./card-value";
 import { Suit } from "./suit";
 
 export class Card {
-    value: number;
+    value: CardValue;
     suit: Suit;
 }

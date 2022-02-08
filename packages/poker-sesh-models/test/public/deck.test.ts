@@ -1,20 +1,21 @@
 import { Card, Deck, Suit } from "../../src"
+import { CardValue } from "../../src/public/card-value";
 
 describe('deck test', () => {
     test('construct deck successful', () => {
         const deck = new Deck();
         const frontCard = {
-            value: 1,
+            value: CardValue.Ace,
             suit: Suit.Heart
         } as Card;
         const rearCard = {
-            value: 13,
+            value: CardValue.King,
             suit: Suit.Club
         } as Card
 
         expect(deck.cards.length).toBe(52);
-        expect(deck.cards[0]).toBe(frontCard);
-        expect(deck.cards[51]).toBe(rearCard);
+        expect(deck.cards[0]).toEqual(frontCard);
+        expect(deck.cards[51]).toEqual(rearCard);
     })
 
     test('length returns length of deck', () => {
