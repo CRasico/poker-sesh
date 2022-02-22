@@ -3,4 +3,4 @@ export enum Suit {
     Diamond,
     Spade,
     Club
-}
+};
