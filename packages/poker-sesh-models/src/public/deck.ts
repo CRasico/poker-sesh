@@ -3,13 +3,13 @@ import { CardValue } from "./card-value";
 import { Suit } from "./suit";
 
 export class Deck {
-    // TODO: consider making cards private
-    cards: Card[]
+    private cards: Card[]
     
     constructor() {
         this.cards = []
 
-        // TODO: need to learn how to easily iterate over enumerations.
+        // TODO: need to learn how to easily iterate over enumerations
+        // Example: for(let cardValue in CardValue) to iterate over the possible cardValues
         for(let cardValue = 0; cardValue < 13; cardValue++) {
             for(let suitValue = 0; suitValue < 4; suitValue++) {
                 this.cards.push({
@@ -25,7 +25,6 @@ export class Deck {
     }
 
     draw(): Card {
-        // TODO: Add error handling here, should be able to throw a "Deck Empty Exception"
         return this.cards.pop();
     }
 
