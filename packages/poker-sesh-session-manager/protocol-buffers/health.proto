@@ -2,7 +2,9 @@ syntax = "proto3";
 
 package grpc.health.v1;
 
-import "google/protobuf/empty.proto";
+message HealthRequest {
+    string service = 1;
+}
 
 message HealthResponse {
     enum HealthStatus {
@@ -16,5 +18,5 @@ message HealthResponse {
 }
 
 service Health {
-    rpc Check(Empty) returns (HealthResponse);
+    rpc Check(HealthRequest) returns (HealthResponse);
 }
