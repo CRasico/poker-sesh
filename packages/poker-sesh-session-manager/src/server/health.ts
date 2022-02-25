@@ -4,7 +4,7 @@ import { HealthRequest, HealthResponse } from "../protocol-buffers/health_pb";
 
 // @ts-ignore: ignoring used type
 export class HealthServer implements IHealthServer {	
-	check(
+	public check(
 	  call: ServerUnaryCall<HealthRequest, HealthResponse>,
 	  callback: sendUnaryData<HealthResponse> 
 	): void {
