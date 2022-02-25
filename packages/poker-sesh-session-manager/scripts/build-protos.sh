@@ -7,7 +7,7 @@ BUILD_PROTOCOL_BUFFER_DEST=./dist/protocol-buffers
 cd ${BASEDIR}/../
 mkdir -p ${GEN_PROTOCOL_BUFFER_DEST}
 
-# JavaScript code generation
+# Typescript and Javascript code generation
 yarn run grpc_tools_node_protoc \
     --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts \
     --ts_out=grpc_js:${GEN_PROTOCOL_BUFFER_DEST} \
@@ -16,6 +16,7 @@ yarn run grpc_tools_node_protoc \
     -I ./protocol-buffers \
     protocol-buffers/*.proto
 
+# Copy Build JS files to folder, as they shouldn't be retranspiled.
 mkdir ${BUILD_PROTOCOL_BUFFER_DEST}
 for file in ${GEN_PROTOCOL_BUFFER_DEST}/*.js
 do
