@@ -3,7 +3,7 @@ import { CardValue } from "./card-value";
 import { Suit } from "./suit";
 
 export class Deck {
-    private cards: Card[]
+    cards: Card[]
     
     constructor() {
         this.cards = []
