@@ -8,6 +8,10 @@
     "build": "lerna run build",
     "start": "lerna run start",
     "test": "lerna run test",
-    "bootstrap": "lerna bootstrap"
-  } 
+    "bootstrap": "lerna bootstrap",
+    "lint": "lerna run lint"
+  },
+  "dependencies": {
+    "typescript": "^4.8.3"
+  }
 }

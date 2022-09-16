@@ -1,15 +1,6 @@
 import { Component, ReactNode } from "react";
 
-interface SessionProps {
-    serviceName: string;
-}
-
-class Session extends Component {
-
-    constructor(props: SessionProps) {
-        super(props);
-    }
-
+class Session extends Component { 
     checkHealth() {
         alert('Healthy!');
         return;
