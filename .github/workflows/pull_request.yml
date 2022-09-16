@@ -21,4 +21,4 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build
-        run: npm lerna run build
+        run: npx lerna run build
