@@ -9,5 +9,8 @@
     "start": "lerna run start",
     "test": "lerna run test",
     "bootstrap": "lerna bootstrap"
-  } 
+  },
+  "dependencies": {
+    "typescript": "^4.8.3"
+  }
 }
