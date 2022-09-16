@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,3 +21,5 @@ jobs:
         run: yarn run build
       - name: Test Projects
         run: yarn run test
+      - name: Lint Projects
+        run: yarn run lint
