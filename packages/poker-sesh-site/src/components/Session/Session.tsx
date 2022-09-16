@@ -1,9 +1,5 @@
 import { Component, ReactNode } from "react";
 
-interface SessionProps {
-    serviceName: string;
-}
-
 class Session extends Component { 
     checkHealth() {
         alert('Healthy!');
