@@ -1,4 +1,4 @@
-import { Card, Deck, Suit } from "../../src"
+import { Card, Deck, Suit, EmptyDeckError } from "../../src";
 import { CardValue } from "../../src/public/card-value";
 
 describe('deck test', () => {
@@ -32,12 +32,23 @@ describe('deck test', () => {
         expect(drawCard).toBe(lastCard);
     })
 
+	test('draw on an empty deck throws exception', () => {
+		const deck = new Deck();
+
+		const initialLength = deck.length();
+		for (let i = 0; i < initialLength; i++) {
+			deck.draw();
+		}
+
+		const action = () => deck.draw();
+		expect(action).toThrow(EmptyDeckError)
+	})
+
     test('shuffle', () => {
         const deck = new Deck();
 
         const lastCard = deck.cards[51];
-        deck.shuffle();
-        const drawCard = deck.draw();
+        const drawCard = deck.shuffle().draw();
         expect(drawCard).not.toBe(lastCard);
     })
 })
