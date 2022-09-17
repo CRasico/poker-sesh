@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -p .",
-    "test": "jest dist/*",
+    "test": "jest dist/* --coverage",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],

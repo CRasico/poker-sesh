@@ -36,7 +36,8 @@ describe('deck test', () => {
         const deck = new Deck();
 
         const lastCard = deck.cards[51];
+        deck.shuffle();
         const drawCard = deck.draw();
-        expect(drawCard).toBe(lastCard);
+        expect(drawCard).not.toBe(lastCard);
     })
 })
