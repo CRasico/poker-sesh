@@ -1,1 +1,1 @@
-console.log("Hello from the chat manager");
+console.log('Hello from the chat manager');
