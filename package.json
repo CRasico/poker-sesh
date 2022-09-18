@@ -9,7 +9,8 @@
     "start": "lerna run start",
     "test": "lerna run test",
     "bootstrap": "lerna bootstrap",
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "format": "lerna run format"
   },
   "dependencies": {
     "typescript": "^4.8.3"
