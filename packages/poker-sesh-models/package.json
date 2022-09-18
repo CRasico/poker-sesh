@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc -p .",
     "test": "jest dist/* --coverage",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint --ignore-path ../../.gitignore --ext .js,.ts,.tsx .",
+    "format": "prettier --ignore-path ../../.gitignore --write \"**/*.+(js|ts|json|tsx)\""
   },
   "keywords": [],
   "author": "",
