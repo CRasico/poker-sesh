@@ -1,1 +1,1 @@
-console.log("Hello from the game manager");
+console.log('Hello from the game manager');
