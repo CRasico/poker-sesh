@@ -2,8 +2,8 @@ import { sendUnaryData, ServerUnaryCall } from '@grpc/grpc-js';
 import { IHealthServer } from '../protocol-buffers/health_grpc_pb';
 import { HealthRequest, HealthResponse } from '../protocol-buffers/health_pb';
 
-// @ts-ignore: ignoring used type
 export class HealthServer implements IHealthServer {
+  [name: string]: import('@grpc/grpc-js').UntypedHandleCall;
   public check(
     call: ServerUnaryCall<HealthRequest, HealthResponse>,
     callback: sendUnaryData<HealthResponse>

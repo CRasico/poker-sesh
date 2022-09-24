@@ -5,7 +5,6 @@ import { HealthServer } from './server/health';
 const port: string | number = process.env.port || 50051;
 const server: Server = new Server();
 
-// @ts-ignore
 server.addService(HealthService, new HealthServer());
 
 server.bindAsync(

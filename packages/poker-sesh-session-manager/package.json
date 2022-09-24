@@ -5,6 +5,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "jest": "^27.5.1",
@@ -20,7 +22,7 @@
     "build": "tsc -p .",
     "build-protobuf": "sh ../../scripts/build-protos.sh -s './src/protocol-buffers' -d './dist/protocol-buffers'",
     "start": "node ./dist/index.js",
-    "lint": "eslint --ignore-path ../../.gitignore --ext .js,.ts,.tsx .",
-    "format": "prettier --ignore-path ../../.gitignore --write \"**/*.+(js|ts|json|tsx)\""
+    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,.tsx .",
+    "format": "prettier --ignore-path .eslintignore --write \"**/*.+(js|ts|json|tsx)\""
   }
 }
