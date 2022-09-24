@@ -25,3 +25,5 @@ jobs:
         run: yarn run test
       - name: Lint Projects
         run: yarn run lint
+      - name: Format Projects
+        run: yarn run format
