@@ -26,8 +26,7 @@ function deserialize_grpc_health_v1_HealthResponse(buffer_arg) {
   return health_pb.HealthResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-
-var HealthService = exports.HealthService = {
+var HealthService = (exports.HealthService = {
   check: {
     path: '/grpc.health.v1.Health/Check',
     requestStream: false,
@@ -37,8 +36,8 @@ var HealthService = exports.HealthService = {
     requestSerialize: serialize_grpc_health_v1_HealthRequest,
     requestDeserialize: deserialize_grpc_health_v1_HealthRequest,
     responseSerialize: serialize_grpc_health_v1_HealthResponse,
-    responseDeserialize: deserialize_grpc_health_v1_HealthResponse,
-  },
-};
+    responseDeserialize: deserialize_grpc_health_v1_HealthResponse
+  }
+});
 
 exports.HealthClient = grpc.makeGenericClientConstructor(HealthService);
