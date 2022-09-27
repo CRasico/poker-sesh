@@ -1,3 +1,3 @@
 export interface ISessionRepository {
-	getHealth(): Promise<boolean>;
+  getHealth(): Promise<boolean>;
 }
