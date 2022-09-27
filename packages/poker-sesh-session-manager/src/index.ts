@@ -18,7 +18,3 @@ server.bindAsync(
     server.start();
   }
 );
-
-const stupidMethod = (variable: String) => {
-	return variable;
-}
