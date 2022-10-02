@@ -1,14 +1,13 @@
-import { promisify } from 'util';
 import { ISessionRepository } from '../../domain/i-session-repository';
-import { IHealthClient } from '../../../../poker-sesh-session-manager/src/protocol-buffers/health_grpc_pb';
 import {
   HealthRequest,
   HealthResponse
 } from '../../../../poker-sesh-session-manager/src/protocol-buffers/health_pb';
+import { ISessionManagerProxy } from '../../../../poker-sesh-session-manager/src/client/session-manager-proxy';
 
 export class GrpcSessionRepository implements ISessionRepository {
   constructor(
-    private sessionHealthClient: IHealthClient,
+    private sessionHealthClient: ISessionManagerProxy,
     private serviceName: string
   ) {}
 
@@ -16,9 +15,9 @@ export class GrpcSessionRepository implements ISessionRepository {
     const healthRequest = new HealthRequest();
     healthRequest.setService(this.serviceName);
 
-    const healthResponse = await promisify<HealthRequest, HealthResponse>(
-      this.sessionHealthClient.check.bind(this.sessionHealthClient)
-    )(healthRequest);
+    const healthResponse = await this.sessionHealthClient.checkHealth(
+      healthRequest
+    );
 
     const healthResponseObj = healthResponse.toObject();
     if (healthResponseObj.status !== HealthResponse.HealthStatus.HEALTHY) {
