@@ -19,7 +19,7 @@ describe('grpc session repository test', () => {
     expect(grpcSessionRepository).toBeInstanceOf(GrpcSessionRepository);
   });
 
-  test('getHealth valid health response successful', async () => {
+  test('getHealth valid health response returns true', async () => {
     const grpcSessionRepository = new GrpcSessionRepository(
       sessionManager.object,
       serviceName
@@ -35,5 +35,23 @@ describe('grpc session repository test', () => {
 
     const result = await grpcSessionRepository.getHealth();
     expect(result).toBeTruthy();
+  });
+
+  test('getHealth invalid health response returns false', async () => {
+    const grpcSessionRepository = new GrpcSessionRepository(
+      sessionManager.object,
+      serviceName
+    );
+
+    const healthResponse = new HealthResponse();
+    healthResponse.setStatus(HealthResponse.HealthStatus.UNHEALTHY);
+    sessionManager
+      .setup((session) =>
+        session.checkHealth(TypeMoq.It.isAnyObject(HealthRequest))
+      )
+      .returns(() => Promise.resolve(healthResponse));
+
+    const result = await grpcSessionRepository.getHealth();
+    expect(result).toBeFalsy();
   });
 });
