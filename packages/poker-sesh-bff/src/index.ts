@@ -1,7 +1,7 @@
 import express from 'express';
 import { credentials } from '../../poker-sesh-session-manager/node_modules/@grpc/grpc-js';
 import { HealthClient } from '../../poker-sesh-session-manager/src/protocol-buffers/health_grpc_pb';
-import { GrpcSessionManager } from '../../poker-sesh-session-manager/src/client/grpc-session-manager';
+import { GrpcSessionManagerProxy } from '../../poker-sesh-session-manager/src/client/grpc-session-manager-proxy';
 import { GrpcSessionRepository } from './infrastructure/repository/grpc-session-repository';
 import { ISessionRepository } from './domain/i-session-repository';
 
@@ -10,7 +10,7 @@ const port = 8080;
 const appName = 'poker-sesh-bff';
 
 const sessionRepository: ISessionRepository = new GrpcSessionRepository(
-  new GrpcSessionManager(
+  new GrpcSessionManagerProxy(
     new HealthClient('localhost:50051', credentials.createInsecure())
   ),
   appName

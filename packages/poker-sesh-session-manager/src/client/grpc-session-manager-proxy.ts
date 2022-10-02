@@ -7,7 +7,7 @@ import { IHealthClient } from '../protocol-buffers/health_grpc_pb';
 import { HealthRequest, HealthResponse } from '../protocol-buffers/health_pb';
 import { ISessionManagerProxy } from './session-manager-proxy';
 
-export class GrpcSessionManager implements ISessionManagerProxy {
+export class GrpcSessionManagerProxy implements ISessionManagerProxy {
   constructor(private healthClient: IHealthClient) {}
 
   checkHealth(healthRequest: HealthRequest): Promise<HealthResponse> {
