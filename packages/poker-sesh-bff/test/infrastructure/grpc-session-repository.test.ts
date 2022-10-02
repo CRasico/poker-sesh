@@ -1,12 +1,10 @@
 import * as TypeMoq from 'typemoq';
-import { walkUpBindingElementsAndPatterns } from 'typescript';
-import { ISessionManager } from '../../../poker-sesh-session-manager/src/client/i-session-manager';
-import { HealthClient } from '../../../poker-sesh-session-manager/src/protocol-buffers/health_grpc_pb';
+import { ISessionManagerProxy } from '../../../poker-sesh-session-manager/src/client/session-manager-proxy';
 import { HealthRequest, HealthResponse } from '../../../poker-sesh-session-manager/src/protocol-buffers/health_pb';
 import { GrpcSessionRepository } from '../../src/infrastructure/repository/grpc-session-repository';
 
 describe('grpc session repository test', () => {
-  const sessionManager = TypeMoq.Mock.ofType<ISessionManager>();
+  const sessionManager = TypeMoq.Mock.ofType<ISessionManagerProxy>();
   const serviceName = 'random-service-name';
 
   test('constructs repository successfully', () => {
@@ -14,7 +12,7 @@ describe('grpc session repository test', () => {
       sessionManager.object,
       serviceName
     );
-
+ 
     expect(grpcSessionRepository).toBeInstanceOf(GrpcSessionRepository);
   });
 
