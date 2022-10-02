@@ -13,7 +13,7 @@ describe('deck test', () => {
       suit: Suit.Club
     } as Card;
 
-    expect(deck.cards.length).toBe(52);
+    expect(deck.cards.length).toEqual(52);
     expect(deck.cards[0]).toEqual(frontCard);
     expect(deck.cards[51]).toEqual(rearCard);
   });
