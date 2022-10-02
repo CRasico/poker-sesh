@@ -10,7 +10,9 @@ const port = 8080;
 const appName = 'poker-sesh-bff';
 
 const sessionRepository: ISessionRepository = new GrpcSessionRepository(
-  new GrpcSessionManager(new HealthClient('localhost:50051', credentials.createInsecure())),
+  new GrpcSessionManager(
+    new HealthClient('localhost:50051', credentials.createInsecure())
+  ),
   appName
 );
 

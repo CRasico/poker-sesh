@@ -15,7 +15,9 @@ export class GrpcSessionRepository implements ISessionRepository {
     const healthRequest = new HealthRequest();
     healthRequest.setService(this.serviceName);
 
-	const healthResponse = await this.sessionHealthClient.checkHealth(healthRequest);
+    const healthResponse = await this.sessionHealthClient.checkHealth(
+      healthRequest
+    );
 
     const healthResponseObj = healthResponse.toObject();
     if (healthResponseObj.status !== HealthResponse.HealthStatus.HEALTHY) {
