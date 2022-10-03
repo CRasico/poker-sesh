@@ -26,3 +26,12 @@ PokerSesh.io: An Online Poker Sessions Player
         - Although the chat manager will not store any information on what the chat pertained it will pass the messages back and forth between the client's
 
 ![](./assets/PokerSeshIo.png)
+
+## Development
+PokerSesh.io is developed completely in Typescript through the use of a lerna monorepo structure.
+The monorepo consist of five main projects:
+- The user interface build in react
+- A backend for frontend utilizng Next.js in order to help translation between the frontend and the gRPC servers
+- A session manager [see respons
+- A game manager
+- A chat manager
