@@ -1,21 +1,25 @@
-import { ISessionRepository } from '../../domain/i-session-repository';
-import {
-  HealthRequest,
-  HealthResponse
-} from '../../../../poker-sesh-session-manager/src/protocol-buffers/health_pb';
+import { ISessionRepository } from '../../domain/repository/i-session-repository';
 import { ISessionManagerProxy } from '../../../../poker-sesh-session-manager/src/client/session-manager-proxy';
+import { Inject, Injectable } from '@nestjs/common';
+import { SERVICE_NAME } from '../../app/constants/service-constants';
+import { HealthRequest, HealthResponse } from 'poker-sesh-session-manager';
 
+export const SESSION_MANAGER_PROXY = 'SESSION_MANAGER_PROXY';
+
+@Injectable()
 export class GrpcSessionRepository implements ISessionRepository {
   constructor(
-    private sessionHealthClient: ISessionManagerProxy,
-    private serviceName: string
+    @Inject(SESSION_MANAGER_PROXY)
+	private readonly _sessionHealthClient: ISessionManagerProxy,
+    @Inject(SERVICE_NAME) 
+	private readonly _serviceName: string
   ) {}
 
   async getHealth(): Promise<boolean> {
     const healthRequest = new HealthRequest();
-    healthRequest.setService(this.serviceName);
+    healthRequest.setService(this._serviceName);
 
-    const healthResponse = await this.sessionHealthClient.checkHealth(
+    const healthResponse = await this._sessionHealthClient.checkHealth(
       healthRequest
     );
 
