@@ -1,8 +1,8 @@
 import { ISessionRepository } from '../../domain/repository/i-session-repository';
-import { ISessionManagerProxy } from '../../../../poker-sesh-session-manager/src/client/session-manager-proxy';
 import { Inject, Injectable } from '@nestjs/common';
 import { SERVICE_NAME } from '../../app/constants/service-constants';
-import { HealthRequest, HealthResponse } from 'poker-sesh-session-manager';
+import { HealthRequest, HealthResponse } from 'poker-sesh-session-manager/src/protocol-buffers/health_pb';
+import { ISessionManagerProxy } from 'poker-sesh-session-manager/src/client/session-manager-proxy';
 
 export const SESSION_MANAGER_PROXY = 'SESSION_MANAGER_PROXY';
 

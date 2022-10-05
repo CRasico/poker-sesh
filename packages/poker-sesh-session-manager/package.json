@@ -1,7 +1,7 @@
 {
   "name": "poker-sesh-session-manager",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^27.4.0",
