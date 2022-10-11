@@ -1,5 +1,5 @@
 import { Server, ServerCredentials } from '@grpc/grpc-js';
-import { HealthService } from './protocol-buffers/health_grpc_pb';
+import { HealthService } from 'poker-sesh-grpc';
 import { HealthServer } from './server/health';
 
 const port: string | number = process.env.port || 50051;

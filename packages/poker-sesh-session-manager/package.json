@@ -16,10 +16,11 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.7.0",
     "grpc-tools": "^1.11.2",
-    "grpc_tools_node_protoc_ts": "^5.3.2"
+    "grpc_tools_node_protoc_ts": "^5.3.2",
+    "poker-sesh-grpc": "^1.0.0"
   },
   "scripts": {
-    "build": "tsc -p .",
+    "build": "tsc -p tsconfig.build.json",
     "build-protobuf": "sh ../../scripts/build-protos.sh -s './src/protocol-buffers' -d './dist/protocol-buffers'",
     "start": "node ./dist/index.js",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,.tsx .",
