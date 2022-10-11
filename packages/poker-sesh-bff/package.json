@@ -34,7 +34,7 @@
     "@nestjs/core": "^9.1.2",
     "@nestjs/platform-express": "^9.1.2",
     "express": "^4.18.1",
-    "poker-sesh-session-manager": "*",
+    "poker-sesh-grpc": "^1.0.0",
     "reflect-metadata": "^0.1.13"
   },
   "jest": {
