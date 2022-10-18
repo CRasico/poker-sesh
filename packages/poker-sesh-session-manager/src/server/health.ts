@@ -1,6 +1,5 @@
 import { sendUnaryData, ServerUnaryCall } from '@grpc/grpc-js';
-import { IHealthServer } from '../protocol-buffers/health_grpc_pb';
-import { HealthRequest, HealthResponse } from '../protocol-buffers/health_pb';
+import { IHealthServer, HealthRequest, HealthResponse } from 'poker-sesh-grpc';
 
 export class HealthServer implements IHealthServer {
   [name: string]: import('@grpc/grpc-js').UntypedHandleCall;

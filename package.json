@@ -6,11 +6,17 @@
   },
   "scripts": {
     "build": "lerna run build",
-    "start": "lerna run start",
+    "start": "lerna run --parallel --stream start",
     "test": "lerna run test",
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --use-workspaces -- --include=dev",
+	"publish-local": "lerna publish --no-private",
     "lint": "lerna run lint",
     "format": "lerna run format"
+  },
+  "workspaces": {
+	"packages": [
+		"packages/*"
+	]
   },
   "dependencies": {
     "typescript": "^4.8.3"

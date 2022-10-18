@@ -1,30 +1,11 @@
-import express from 'express';
-import { credentials } from '../../poker-sesh-session-manager/node_modules/@grpc/grpc-js';
-import { HealthClient } from '../../poker-sesh-session-manager/src/protocol-buffers/health_grpc_pb';
-import { GrpcSessionManagerProxy } from '../../poker-sesh-session-manager/src/client/grpc-session-manager-proxy';
-import { GrpcSessionRepository } from './infrastructure/repository/grpc-session-repository';
-import { ISessionRepository } from './domain/i-session-repository';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app/app.module';
 
-const app = express();
-const port = 8080;
-const appName = 'poker-sesh-bff';
+const port = 50050;
 
-const sessionRepository: ISessionRepository = new GrpcSessionRepository(
-  new GrpcSessionManagerProxy(
-    new HealthClient('localhost:50051', credentials.createInsecure())
-  ),
-  appName
-);
+async function startup(): Promise<void> {
+  const app = await NestFactory.create(AppModule);
+  app.listen(port);
+}
 
-app.get('/', (_, res) => {
-  res.send('Hello World');
-});
-
-app.get('/session/health', async (_, res) => {
-  const sessionHealth = await sessionRepository.getHealth();
-  res.send(`Status: ${sessionHealth}`);
-});
-
-app.listen(port, () => {
-  console.info(`poker-sesh-bff listening on port: ${port}`);
-});
+startup();
