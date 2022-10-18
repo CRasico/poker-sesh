@@ -1,5 +1,5 @@
 describe('poker-sesh-grpc', () => {
     it('needs tests', () => {
-		expect(true).toBeTruty()
+		expect(true).toBeTruthy();
 	});
 });
