@@ -12,7 +12,7 @@
   },
   "files": [
     "src",
-	"dist"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -21,9 +21,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json | mkdir -p ./dist/protocol-buffers | cp ./src/protocol-buffers/* ./dist/protocol-buffers",
     "build-protobuf": "sh ../../scripts/build-protos.sh -s './src/protocol-buffers' -d './dist/protocol-buffers'",
-	"test": "jest --coverage",
-    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,.tsx .",
-    "format": "prettier --ignore-path .eslintignore --write \"**/*.+(js|ts|json|tsx)\""
+    "test": "jest --coverage",
+    "lint": "eslint --ignore-path ../../.gitignore --ext .ts,.tsx .",
+    "format": "prettier --ignore-path ../../.gitignore --write \"**/*.+(ts|json|tsx)\""
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
@@ -39,7 +39,7 @@
     "@grpc/grpc-js": "^1.7.0",
     "grpc-tools": "^1.11.2",
     "grpc_tools_node_protoc_ts": "^5.3.2"
-  }, 
+  },
   "bugs": {
     "url": "https://github.com/CRasico/poker-sesh/issues"
   }

@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-	"experimentalDecorators": true,
-    "outDir": "dist",
+    "experimentalDecorators": true,
+    "outDir": "dist"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/test/*"],
+  "exclude": ["node_modules", "**/test/*"]
 }

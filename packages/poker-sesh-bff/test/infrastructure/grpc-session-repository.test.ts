@@ -1,4 +1,8 @@
-import { HealthRequest, HealthResponse, ISessionManagerProxy } from 'poker-sesh-grpc';
+import {
+  HealthRequest,
+  HealthResponse,
+  ISessionManagerProxy
+} from 'poker-sesh-grpc';
 import * as TypeMoq from 'typemoq';
 import { GrpcSessionRepository } from '../../src/infrastructure/repository/grpc-session-repository';
 

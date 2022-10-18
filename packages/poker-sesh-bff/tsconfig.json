@@ -3,13 +3,13 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "esModuleInterop": true,
-	"resolveJsonModule": true,
+    "resolveJsonModule": true,
     "outDir": "./dist",
-	"paths": {
-		"poker-sesh-grpc": ["../poker-sesh-grpc/src"]
-	}
+    "paths": {
+      "poker-sesh-grpc": ["../poker-sesh-grpc/src"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/test/*"],
-  "references": [{ "path": "../poker-sesh-grpc"}]
+  "references": [{ "path": "../poker-sesh-grpc" }]
 }
