@@ -24,7 +24,8 @@ const sessionManagerProxy = new GrpcSessionManagerProxy(
 		},
 		{
 			provide: SESSION_MANAGER_PROXY,
-			useExisting: sessionManagerProxy
+			useValue: sessionManagerProxy
+			//useExisting: sessionManagerProxy
 		}
 	]
 })

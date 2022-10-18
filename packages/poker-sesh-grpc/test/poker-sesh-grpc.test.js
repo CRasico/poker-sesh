@@ -1,7 +1,5 @@
-'use strict';
-
-const pokerSeshGrpc = require('..');
-
 describe('poker-sesh-grpc', () => {
-    it('needs tests');
+    it('needs tests', () => {
+		expect(true).toBeTruty()
+	});
 });
