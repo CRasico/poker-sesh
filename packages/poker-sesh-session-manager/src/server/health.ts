@@ -11,6 +11,7 @@ export class HealthServer implements IHealthServer {
 
     // TODO: add some form of injectable logger to work with here.
     console.info('session manager health for {service}', service);
+
     // TODO: set some logic to determine which service to check.
     const response: HealthResponse = new HealthResponse();
     response.setStatus(HealthResponse.HealthStatus.HEALTHY);
