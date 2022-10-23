@@ -1,7 +1,7 @@
-import { Inject, Injectable, NotImplementedException } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { HealthRequest, HealthResponse, IGameManagerProxy } from 'poker-sesh-grpc';
 import { SERVICE_NAME } from '../../app/constants/service-constants';
-import { IGameRepository } from '../../domain/repository/i-game-repository';
+import { IGameRepository } from '../../domain/repository/game-repository';
 
 export const GAME_MANAGER_PROXY = 'GAME_MANAGER_PROXY';
 
