@@ -1,5 +1,5 @@
 import { sendUnaryData, ServerUnaryCall } from '@grpc/grpc-js';
-import { IHealthServer, HealthRequest, HealthResponse } from 'poker-sesh-grpc';
+import { HealthRequest, HealthResponse, IHealthServer } from 'poker-sesh-grpc';
 
 export class HealthServer implements IHealthServer {
   [name: string]: import('@grpc/grpc-js').UntypedHandleCall;
@@ -9,11 +9,9 @@ export class HealthServer implements IHealthServer {
   ): void {
     const service = call.request.getService();
 
-    // TODO: add some form of injectable logger to work with here.
-    console.info('session manager health for {service}', service);
+    console.info('chat manager health for {service}', service);
 
-    // TODO: set some logic to determine which service to check.
-    const response: HealthResponse = new HealthResponse();
+    const response = new HealthResponse();
     response.setStatus(HealthResponse.HealthStatus.HEALTHY);
     callback(null, response);
   }

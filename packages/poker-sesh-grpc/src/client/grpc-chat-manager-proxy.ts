@@ -1,10 +1,10 @@
-/* istanbul ignore file */
 import { promisify } from 'util';
 import { IHealthClient } from '../protocol-buffers/health_grpc_pb';
 import { HealthRequest, HealthResponse } from '../protocol-buffers/health_pb';
-import { ISessionManagerProxy } from './session-manager-proxy';
+import { IChatManagerProxy } from './chat-manager-proxy';
 
-export class GrpcSessionManagerProxy implements ISessionManagerProxy {
+/* istanbul ignore file */
+export class GrpcChatManagerProxy implements IChatManagerProxy {
   constructor(private healthClient: IHealthClient) {}
 
   checkHealth(healthRequest: HealthRequest): Promise<HealthResponse> {
