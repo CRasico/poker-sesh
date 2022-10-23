@@ -2,9 +2,9 @@
 import { promisify } from 'util';
 import { IHealthClient } from '../protocol-buffers/health_grpc_pb';
 import { HealthRequest, HealthResponse } from '../protocol-buffers/health_pb';
-import { ISessionManagerProxy } from './session-manager-proxy';
+import { IGameManagerProxy } from './game-manager-proxy';
 
-export class GrpcSessionManagerProxy implements ISessionManagerProxy {
+export class GrpcGameManagerProxy implements IGameManagerProxy {
   constructor(private healthClient: IHealthClient) {}
 
   checkHealth(healthRequest: HealthRequest): Promise<HealthResponse> {

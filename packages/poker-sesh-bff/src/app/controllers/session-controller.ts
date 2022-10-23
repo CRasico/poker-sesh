@@ -2,7 +2,7 @@ import { Controller, Get, Inject } from '@nestjs/common';
 import {
   ISessionRepository,
   SESSION_REPOSITORY
-} from '../../domain/repository/i-session-repository';
+} from '../../domain/repository/session-repository';
 import { HEALTHY, UNHEALTHY } from '../constants/health-constants';
 
 @Controller()
