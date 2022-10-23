@@ -28,6 +28,7 @@ import { GAME_REPOSITORY } from '../domain/repository/game-repository';
 import { SESSION_REPOSITORY } from '../domain/repository/session-repository';
 import { GameController } from './controllers/game-controller';
 import { ChatController } from './controllers/chat-controller';
+import { HealthController } from './controllers/health-controller';
 
 const sessionManagerProxy = new GrpcSessionManagerProxy(
   new HealthClient('localhost:50051', credentials.createInsecure())
@@ -42,9 +43,10 @@ const chatManagerProxy = new GrpcChatManagerProxy(
 @Module({
   imports: [],
   controllers: [
+    HealthController,
     SessionController,
     GameController,
-    ChatController,
+    ChatController
   ],
   providers: [
     {
@@ -74,7 +76,7 @@ const chatManagerProxy = new GrpcChatManagerProxy(
     {
       provide: CHAT_MANAGER_PROXY,
       useValue: chatManagerProxy
-    },
+    }
   ]
 })
 export class AppModule {}

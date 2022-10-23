@@ -1,5 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { SERVICE_NAME } from '../../app/constants/service-constants';
+import { Inject, Injectable } from '@nestjs/common'; import { SERVICE_NAME } from '../../app/constants/service-constants';
 import { HealthRequest, HealthResponse, IChatManagerProxy } from 'poker-sesh-grpc';
 import { IChatRepository } from '../../domain/repository/chat-manager-proxy';
 
